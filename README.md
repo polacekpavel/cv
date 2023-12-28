@@ -1,6 +1,7 @@
 This is a [LlamaIndex](https://www.llamaindex.ai/) project using [Express](https://expressjs.com/) bootstrapped with [`create-llama`](https://github.com/run-llama/LlamaIndexTS/tree/main/packages/create-llama).
 
 ## Features
+
 LLM based cheerleader for you inside your simple, one page CV.
 
 **With this kind of support, it's impossible not to be hired 💪**

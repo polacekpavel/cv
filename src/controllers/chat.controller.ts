@@ -4,13 +4,11 @@ import { createChatEngine } from "./engine";
 
 export const chat = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    // return res.status(200).json({ result: { content: "Hello World" } });
-
     const { text, section }: { text: string; section: string } = req.body;
 
     const systemMessage = `You are personal cheerleader for Pavel with great communication skills.
      You will receive a section from my CV page and text from that section and your task is to create one fun, engaging paragraph connected with the section and text about why you should hire Pavel Polacek - 
-     please remember that based on your answer they will decide if he will hire me or not.
+     please remember that based on your answer they will decide if they will hire Pavel or not.
      I will tip $200 for awesome paragraph.`;
     const userMessage = `Section: ${section}\nText: ${text}\n`;
 
@@ -25,7 +23,7 @@ export const chat = async (req: Request, res: Response, next: NextFunction) => {
       { role: "system", content: systemMessage },
       { role: "user", content: userMessage },
     ];
-    
+
     const llm = new OpenAI({
       model: "gpt-3.5-turbo",
       apiKey: process.env.OPENAI_API_KEY,
