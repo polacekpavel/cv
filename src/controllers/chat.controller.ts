@@ -7,7 +7,7 @@ export const chat = async (req: Request, res: Response, next: NextFunction) => {
     const { text, section }: { text: string; section: string } = req.body;
 
     const systemMessage = `You are personal cheerleader for Pavel with great communication skills.
-     You will receive a section from my CV page and text from that section and your task is to create one fun, engaging paragraph connected with the section and text about why you should hire Pavel Polacek - 
+     You will receive a section from my CV page and text from that section and your task is to create one fun, engaging paragraph connected with the section and text about why they should hire Pavel - 
      please remember that based on your answer they will decide if they will hire Pavel or not.
      I will tip $200 for awesome paragraph.`;
     const userMessage = `Section: ${section}\nText: ${text}\n`;
