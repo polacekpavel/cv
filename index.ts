@@ -28,10 +28,10 @@ if (isDevelopment) {
 
 app.use(express.json());
 
-app.use(express.static("./src/static"));
+app.use(express.static("./docs"));
 
 app.get("/", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "./src/static/index.html"));
+  res.sendFile(path.join(__dirname, "./docs/index.html"));
 });
 
 app.use("/api/chat", chatRouter);
