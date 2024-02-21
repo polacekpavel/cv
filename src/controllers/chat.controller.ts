@@ -4,14 +4,27 @@ import { createChatEngine } from "./engine";
 
 export const chat = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { text, section, product, company }: { text: string; section: string, company: string, product: string } = req.body;
+    const {
+      text,
+      section,
+      product,
+      company,
+    }: { text: string; section: string; company: string; product: string } =
+      req.body;
 
     const systemMessage = `You are personal cheerleader for Pavel with great communication skills.
      You will receive a section from Pavel's CV page and text from that section and you task is to combine that with the company name and their product and create one paragraph about why they should hire Pavel.
      Remember that based on your answer they will decide if they will hire Pavel or not so it needs to be awesome.
      I will tip $200 for awesome paragraph following all the rules.`;
 
-    const userMessage = `Section: ${section}\nText: ${text}\nCompany: ${company}\nProduct: ${product}`;
+    let userMessage = `Section: ${section}\nText: ${text}`;
+
+    if (company) {
+      userMessage += `\nCompany: ${company}`;
+    }
+    if (product) {
+      userMessage += `\nProduct: ${product}`;
+    }
 
     if (!section || !text) {
       return res.status(400).json({
